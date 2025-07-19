@@ -70,6 +70,8 @@ python3 manage.py runserver
 pip3 install pillow
 ```
 
+Communicate with PostgreSQL database:
+
 ```console
 pip3 install psycopg2
 ```
@@ -98,6 +100,13 @@ Using pgAdmin 4
 
 ```console
 \password <username>
+```
+
+#### Render
+
+```console
+pip install python-dotenv
+pip install gunicorn
 ```
 
 ##### Boostrap
