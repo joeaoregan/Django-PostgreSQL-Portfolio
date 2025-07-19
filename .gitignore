@@ -1,4 +1,8 @@
+
+/.venv/
 /coverage/
 db.sqlite3
 /jobs/__pycache__/
 /portfolio/__pycache__/
+data.txt
+.env
