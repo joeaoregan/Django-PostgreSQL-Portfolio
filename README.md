@@ -158,6 +158,12 @@ python3 manage.py collectstatic
 <details>
   <summary>9. Sample Data</summary>
 
+## Admin Page
+
+Local: `http://localhost:8000/admin/` \
+Render: `https://django-postgresql-portfolio.onrender.com/admin/`
+
+
 ### Project #1: Zombie Apocalypse
 
 Name: `Zombie Apocalypse` \
