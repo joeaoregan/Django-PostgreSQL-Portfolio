@@ -79,27 +79,22 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-if 'RENDER' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'portfoliodb',
-            'USER': 'postgres',
-            'PASSWORD': 'django1234',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }    
-
-    database_url = os.environ.get("DATABASE_URL")
-    DATABASES["default"] = dj_database_url.parse(database_url)
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+
+# If on Render, try to upgrade to Postgres, otherwise stay on SQLite
+if os.environ.get('RENDER'):
+    database_url = os.environ.get("DATABASE_URL")
+    if database_url:
+        # dj_database_url.config handles the parsing safely
+        DATABASES['default'] = dj_database_url.config(
+            default=database_url,
+            conn_max_age=600
+        )
   
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

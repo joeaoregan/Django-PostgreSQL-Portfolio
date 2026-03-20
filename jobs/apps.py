@@ -1,17 +1,20 @@
 from django.apps import AppConfig
 from django.db import connection
+from django.db.utils import OperationalError
 
 class JobsConfig(AppConfig):
     name = 'jobs'
+    default_auto_field = 'django.db.models.BigAutoField'
 
     def ready(self):
         import os
-        # Only run if this is the actual server and not a background reloader
+        # Only attempt to seed if we are running the actual server
         if os.environ.get('RUN_MAIN') == 'true' or os.environ.get('RENDER') == 'true':
-            # Check if the table exists before trying to count/seed
-            if 'jobs_job' in connection.introspection.table_names():
-                try:
+            try:
+                # Check if the table exists
+                if 'jobs_job' in connection.introspection.table_names():
                     from .utils import seed_projects
                     seed_projects()
-                except Exception as e:
-                    print(f"Seeding failed: {e}")
+            except (OperationalError, Exception) as e:
+                # If DB is down, print to logs but DON'T crash the app
+                print(f"Database seeding skipped: {e}")
