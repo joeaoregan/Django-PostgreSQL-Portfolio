@@ -82,6 +82,16 @@ pip3 install psycopg2
 pip3 install psycopg2-binary
 ```
 
+```console
+pip install whitenoise
+```
+
+Update requirements.txt
+
+```console
+pip freeze > requirements.txt
+```
+
 </details>
 
 <details>

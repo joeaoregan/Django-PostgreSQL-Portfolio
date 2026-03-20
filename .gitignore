@@ -7,3 +7,4 @@ db.sqlite3
 /portfolio/__pycache__/
 data.txt
 .env
+staticfiles/
