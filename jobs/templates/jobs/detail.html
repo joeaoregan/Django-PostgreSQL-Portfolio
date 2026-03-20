@@ -1,54 +1,60 @@
 <!doctype html>
 <html lang="en">
 {% load static %} <!-- needed to load static files -->
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.5">
-    <title>Joe's Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
 
-    <!-- Bootstrap core CSS -->
-	<!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"-->
-	<!-- imported as static content -->
-	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v3.8.5">
+  <title>Joe's Portfolio</title>
+  <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+
+  <!-- Bootstrap core CSS -->
+  <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"-->
+  <!-- imported as static content -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
+    }
+  </style>
+</head>
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main role="main">
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">{{ job.name }}</h1>
-          <p class="lead text-muted">{{ job.summary }}</p>
-          <iframe width="520" height="480" src="https://www.youtube.com/embed/{{ job.youtube }}?autoplay=1&mute=1&playlist={{ job.youtube }}&loop=1"></iframe>
-          <br/>
+<body>
+  <main role="main">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">{{ job.name }}</h1>
+        <p class="lead text-muted">{{ job.summary }}</p>
+        <iframe width="720" height="405" src="https://www.youtube.com/embed/{{ job.youtube }}"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <br />
 
-          <img src="{{ job.image.url }}" height=300></img>
-          <div>
-            <a href="{% url 'home' %}" class="btn btn-primary my-2">Back</a>	<!-- name assigned in url.py -->        
-            <a href="{{ job.link }}" target="_blank" class="btn btn-primary my-2">GitHub</a><!-- go to GitHub page -->
-          </div>
+        <img src="{% static job.image %}" height=300></img>
+        <div>
+          <a href="{% url 'home' %}" class="btn btn-primary my-2">Back</a> <!-- name assigned in url.py -->
+          <a href="{{ job.link }}" target="_blank" class="btn btn-primary my-2">GitHub</a><!-- go to GitHub page -->
         </div>
-      </section>      
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <script src="{% static 'jquery-3.7.1.js' %}"></script>
-    <script src="{% static 'popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
+  <script src="{% static 'jquery-3.7.1.js' %}"></script>
+  <script src="{% static 'popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+
 </html>
