@@ -18,3 +18,8 @@ class JobsConfig(AppConfig):
             except (OperationalError, Exception) as e:
                 # If DB is down, print to logs but DON'T crash the app
                 print(f"Database seeding skipped: {e}")
+
+        if 'jobs_job' in connection.introspection.table_names():
+            from .utils import seed_projects, seed_superuser # Add seed_superuser here
+            seed_projects()
+            seed_superuser() # Add this line

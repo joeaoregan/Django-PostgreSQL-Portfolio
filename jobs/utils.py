@@ -26,3 +26,15 @@ def seed_projects():
         )
 
         print("Database seeded with default projects!")
+
+from django.contrib.auth.models import User
+import os
+
+def seed_superuser():
+    username = os.environ.get("ADMIN_USERNAME", "admin")
+    email = os.environ.get("ADMIN_EMAIL", "admin@example.com")
+    password = os.environ.get("ADMIN_PASSWORD")
+
+    if password and not User.objects.filter(username=username).exists():
+        User.objects.create_superuser(username, email, password)
+        print(f"Superuser '{username}' created successfully!")        
