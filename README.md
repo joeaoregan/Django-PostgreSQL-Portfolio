@@ -9,8 +9,11 @@
 ![Server](https://img.shields.io/badge/Gunicorn-25.1.0-499848?logo=gunicorn&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Self--Healing-success)
 ![Database](https://img.shields.io/badge/DB--Fallback-SQLite/Postgres-orange)
+
 ![GitHub repo size](https://img.shields.io/github/repo-size/joeaoregan/Django-PostgreSQL-Portfolio?color=orange)
 ![GitHub last commit](https://img.shields.io/github/last-commit/joeaoregan/Django-PostgreSQL-Portfolio?color=blue)
+![Stars](https://img.shields.io/github/stars/joeaoregan/Django-PostgreSQL-Portfolio?style=social)
+
 
 ## Joe O'Regan
 
@@ -235,3 +238,17 @@ Link: `https://github.com/joeaoregan/LIT-Yr4-Project-NetworkGamesLibrary` \
 YouTube: `https://youtu.be/88U7cKIl8VU`
   
 </details>
+
+---
+
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/joeaoregan)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joeaoregan/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:joeaoregan@yahoo.ie)
+
+&copy; 2026 Joe O'Regan
+
+[⬆️ Back to Top](#)
+
+</div>
