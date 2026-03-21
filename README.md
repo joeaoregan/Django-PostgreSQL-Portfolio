@@ -9,6 +9,8 @@
 ![Server](https://img.shields.io/badge/Gunicorn-25.1.0-499848?logo=gunicorn&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Self--Healing-success)
 ![Database](https://img.shields.io/badge/DB--Fallback-SQLite/Postgres-orange)
+![GitHub repo size](https://img.shields.io/github/repo-size/joeaoregan/Django-PostgreSQL-Portfolio?color=orange)
+![GitHub last commit](https://img.shields.io/github/last-commit/joeaoregan/Django-PostgreSQL-Portfolio?color=blue)
 
 ## Joe O'Regan
 
