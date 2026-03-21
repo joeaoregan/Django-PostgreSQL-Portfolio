@@ -1,5 +1,15 @@
 # Python/Django Portfolio Tutorial
 
+![Python 3.13](https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white)
+![Django 5.2](https://img.shields.io/badge/Django-5.2-092E20?logo=django&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Enabled-4169E1?logo=postgresql&logoColor=white)
+![Bootstrap 4.1](https://img.shields.io/badge/Bootstrap-4.1-7952B3?logo=bootstrap&logoColor=white)
+![Deploy](https://img.shields.io/badge/Render-Deployed-46E3B7?logo=render&logoColor=white)
+![Static Files](https://img.shields.io/badge/WhiteNoise-Enabled-informational)
+![Server](https://img.shields.io/badge/Gunicorn-25.1.0-499848?logo=gunicorn&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Self--Healing-success)
+![Database](https://img.shields.io/badge/DB--Fallback-SQLite/Postgres-orange)
+
 ## Joe O'Regan
 
 [See App On Render](https://django-postgresql-portfolio.onrender.com/)
@@ -69,21 +79,23 @@ python3 manage.py runserver
   <summary>4. Dependencies</summary>
 
 ```console
+# Image processing for project screenshots
 pip3 install pillow
-```
 
-Communicate with PostgreSQL database:
+# PostgreSQL database drivers
+pip3 install psycopg2 psycopg2-binary
 
-```console
-pip3 install psycopg2
-```
+# Database URL parsing for Render/Heroku
+pip3 install dj-database-url
 
-```console
-pip3 install psycopg2-binary
-```
-
-```console
+# Serving static files in production (DEBUG=False)
 pip install whitenoise
+
+# Production web server
+pip install gunicorn
+
+# Environment variable management
+pip install python-dotenv
 ```
 
 Update requirements.txt
@@ -97,33 +109,52 @@ pip freeze > requirements.txt
 <details>
   <summary>5. Create Project</summary>
 
-```console
-django-admin startproject <project_name>
-```
+This replaces the old manual steps. Since `apps.py` triggers the seeding, the user (or you) just needs to run the server.
+
+  <details>
+    <summary>Create & Initialize Project</summary>
 
 ```console
+django-admin startproject <project_name>
 django-admin startapp jobs
 ```
 
+Note to Self: Automated Initialization
+The project is configured with a Self-Healing database. On the first run (or if the database is deleted), the app will automatically:
+
+Run Migrations.
+
+Seed the Job table with "Zombie Apocalypse", "Antibody", and "JOR_Net".
+
+Create the Admin Superuser (if ADMIN_PASSWORD is set in env).
+
+To trigger this manually or locally:
+
+```console
+python3 manage.py migrate
+python3 manage.py runserver
+```
+
+  </details>
+
+  <details>
+    <summary>Old Version</summary>
 
 ###### Note to Self: Run the next 2 commands after updating database fields
 
 ```console
 python3 manage.py makemigrations
-```
 
-```console
 python3 manage.py migrate
-```
 
-```console
 python3 manage.py createsuperuser
 ```
+  </details>
 
 </details>
 
 <details>
-  <summary>5. PostgreSQL</summary>
+  <summary>6. PostgreSQL</summary>
 
 Using pgAdmin 4
 
@@ -134,7 +165,7 @@ Using pgAdmin 4
 </details>
 
 <details>
-  <summary>6. Render</summary>
+  <summary>7. Render</summary>
 
 ```console
 pip install python-dotenv
@@ -144,7 +175,7 @@ pip install gunicorn
 </details>
 
 <details>
-  <summary>7. Boostrap</summary>
+  <summary>8. Boostrap</summary>
 
 Album Example
 
@@ -155,7 +186,7 @@ Album Example
 </details>
 
 <details>
-  <summary>8. Static files</summary>
+  <summary>9. Static files</summary>
 
 ```console
 python3 manage.py collectstatic
@@ -166,7 +197,10 @@ python3 manage.py collectstatic
 
 
 <details>
-  <summary>9. Sample Data</summary>
+  <summary>10. Sample Data</summary>
+
+## Project Data Logic
+Projects are defined in `jobs/utils.py` and seeded automatically via `jobs/apps.py`.
 
 ## Admin Page
 
