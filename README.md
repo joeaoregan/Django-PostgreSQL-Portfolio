@@ -42,6 +42,13 @@ Added extra fields to database for project name and GitHub repo link
 python3 manage.py runserver
 ```
 
+#### Admin Access:
+
+The app automatically creates a superuser on deployment. 
+
+- **Username:** joe (or as set in `ADMIN_USERNAME`)
+- **Login:** [https://django-postgresql-portfolio.onrender.com/admin/](https://django-postgresql-portfolio.onrender.com/admin/)
+
 <details>
   <summary>1. Screenshots</summary>
 
